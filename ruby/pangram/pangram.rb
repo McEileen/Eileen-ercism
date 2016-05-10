@@ -31,7 +31,7 @@ class Pangram
   }
 
   def self.is_pangram?(str)
-    if str.length == 0 then return false end
+    return false if str.length.zero?
 
     arr = str.gsub(/\s+/, "").downcase.chars
     @individ_alph_hash = ALPHABET_HASH.dup
@@ -42,11 +42,7 @@ class Pangram
       end
     end
 
-    if @individ_alph_hash.has_value?(0)
-      false
-    else
-      true
-    end
+    not @individ_alph_hash.has_value?(0)
 
   end
 
